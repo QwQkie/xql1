@@ -59,6 +59,7 @@ public class courseController {
             courseService.deleteById(id);
             System.out.println(id);
         }
+
         return MessageUtil.success();
     }
 }

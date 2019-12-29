@@ -60,5 +60,13 @@ public class DepartmentController {
         List<DepartmentEX> list = iDepartmentService.search(key);
         return   MessageUtil.success(list);
     }
+    @GetMapping("/deleteBatch")
+    @ApiOperation(value = "批量删除")
+    public Message deleteBatch(int[] ids){
+        for (int id : ids) {
+            iDepartmentService.delete(id);
+        }
+        return MessageUtil.success();
+    }
 
 }

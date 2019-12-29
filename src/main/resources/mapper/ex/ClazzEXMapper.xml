@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.zhihuipingjiao.mapper.ex.ClazzEXMapper">
+    <resultMap id="abn" type="com.briup.zhihuipingjiao.bean.ex.ClazzEX">
+        <id column="id"  property="id" />
+        <result column="name"  property="name" />
+        <result column="serve_number"  property="serveNumber" />
+        <result column="student_number"  property="studentNumber" />
+        <result column="department_id"  property="departmentId" />
+        <association property="teacher" column="teacher_id" select="selectTeacher"></association>
+    </resultMap>
+    <select id="findAll" resultMap="abn">
+        select * from briup_clazz
+    </select>
+    <select id="selectTeacher" resultType="com.briup.zhihuipingjiao.bean.Teacher">
+        select * from briup_teacher where id = #{id}
+    </select>
+    <delete id="deleteById" >
+        delete from briup_clazz join briup_survey on (briup_clazz.id = briup_survey.clazz_id)
+        where  id = #{id}
+
+    </delete>
+</mapper>

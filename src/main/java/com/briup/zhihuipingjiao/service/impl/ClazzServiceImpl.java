@@ -1,8 +1,6 @@
 package com.briup.zhihuipingjiao.service.impl;
 
 import com.briup.zhihuipingjiao.bean.Clazz;
-import com.briup.zhihuipingjiao.bean.ClazzExample;
-import com.briup.zhihuipingjiao.bean.Survey;
 import com.briup.zhihuipingjiao.bean.SurveyExample;
 import com.briup.zhihuipingjiao.bean.ex.ClazzEX;
 import com.briup.zhihuipingjiao.mapper.ClazzMapper;
@@ -44,10 +42,18 @@ public class ClazzServiceImpl implements IClazzService {
         clazzMapper.deleteByPrimaryKey(id);
     }
 
-    @Override
-    public void deleteAll() throws RuntimeException {
-
-        ClazzExample clazzExample = new ClazzExample();
-        clazzMapper.deleteByExample(clazzExample);
+    public List<ClazzEX> searchEx(String key, String word) throws RuntimeException {
+        //word为空,key为空
+        if ((key == null || key.equals(""))&& (word == null || word.equals(""))){
+            return clazzEXMapper.findAll();
+            //word不为空，key为空
+        } else if(key == null || key.equals("") && (word !=null || !key.equals(""))){
+            word = "%"+word+"%";
+            return clazzEXMapper.selectClazz(word);
+        }  else if (key.equals(word)){
+            word = "%"+word+"%";
+            return clazzEXMapper.selectClazz(word);
+        }
+        return null;
     }
 }

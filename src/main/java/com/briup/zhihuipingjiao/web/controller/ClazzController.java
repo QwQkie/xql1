@@ -7,6 +7,7 @@ import com.briup.zhihuipingjiao.util.Message;
 import com.briup.zhihuipingjiao.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,14 +24,14 @@ public class ClazzController {
         List<ClazzEX> list = clazzService.findAllEX();
         return MessageUtil.success(list);
     }
-    @GetMapping("/saveClass")
+    @PostMapping("/saveClass")
     public Message saveClass(Clazz clazz){
 
         clazzService.save(clazz);
         return MessageUtil.success();
     }
 
-    @GetMapping("/deleteById")
+    @PostMapping("/deleteById")
     public Message deleteById(int id){
         clazzService.deleteById(id);
         return MessageUtil.success();
@@ -41,6 +42,12 @@ public class ClazzController {
         for (int id : ids){
             clazzService.deleteById(id);
         }
+        return MessageUtil.success();
+    }
+
+    @GetMapping("/serch")
+    public Message serch(String key,String word){
+        clazzService.searchEx(key, word);
         return MessageUtil.success();
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 public interface ClazzEXMapper {
 
     List<ClazzEX> findAll();
-    void deleteById(int id);
+    List<ClazzEX> selectClazz(String word);
 }

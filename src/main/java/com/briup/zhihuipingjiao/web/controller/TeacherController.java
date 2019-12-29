@@ -44,6 +44,12 @@ public class TeacherController {
         iTeacherService.delete(id);
         return MessageUtil.success();
     }
+    @PostMapping("/update")
+    @ApiOperation(value = "修改教师信息")
+    public Message update(Teacher teacher){
+        iTeacherService.addOrUpdate(teacher);
+        return MessageUtil.success();
+    }
     @GetMapping("/search")
     @ApiOperation(value = "搜索老师")
     public Message search(String key){

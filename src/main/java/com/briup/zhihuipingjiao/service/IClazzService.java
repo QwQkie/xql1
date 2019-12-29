@@ -11,5 +11,5 @@ public interface IClazzService {
 
     void save(Clazz clazz) throws  RuntimeException;
     void deleteById(int id) throws RuntimeException;
-    void deleteAll() throws RuntimeException;
+    List<ClazzEX> searchEx(String key,String word) throws RuntimeException;
 }

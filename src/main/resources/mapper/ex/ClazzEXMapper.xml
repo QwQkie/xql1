@@ -15,9 +15,4 @@
     <select id="selectTeacher" resultType="com.briup.zhihuipingjiao.bean.Teacher">
         select * from briup_teacher where id = #{id}
     </select>
-    <delete id="deleteById" >
-        delete from briup_clazz join briup_survey on (briup_clazz.id = briup_survey.clazz_id)
-        where  id = #{id}
-
-    </delete>
 </mapper>

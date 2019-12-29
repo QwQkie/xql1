@@ -15,7 +15,6 @@
     <select id="search" resultMap="abc">
         select * from briup_teacher where name like #{key}
     </select>
-    >
 </mapper>
 
 

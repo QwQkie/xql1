@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.briup.zhihuipingjiao.mapper.TeacherEXMapper">
-    <resultMap id="BaseResultMap" type="com.briup.zhihuipingjiao.bean.Teacher">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="name" jdbcType="VARCHAR" property="name" />
-        <result column="gender" jdbcType="VARCHAR" property="gender" />
-        <result column="birthday" jdbcType="DATE" property="birthday" />
-        <result column="startday" jdbcType="DATE" property="startday" />
-    </resultMap>
-    <select id="findAll" resultMap="abn">
+<mapper namespace="com.briup.zhihuipingjiao.mapper.ex.TeacherEXMapper">
+    <select id="findAll" resultType="com.briup.zhihuipingjiao.bean.ex.TeacherEX">
         select * from briup_teacher
     </select>
-
-    <select id="search" resultMap="abc">
+    <select id="search" resultType="com.briup.zhihuipingjiao.bean.ex.TeacherEX">
         select * from briup_teacher where name like #{key}
     </select>
-    >
 </mapper>
 
 

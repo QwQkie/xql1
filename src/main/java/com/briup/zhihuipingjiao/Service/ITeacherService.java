@@ -1,4 +1,4 @@
-package com.briup.zhihuipingjiao.Service;
+package com.briup.zhihuipingjiao.service;
 
 import com.briup.zhihuipingjiao.bean.Teacher;
 import com.briup.zhihuipingjiao.bean.ex.TeacherEX;
@@ -12,5 +12,5 @@ public interface ITeacherService {
     Teacher findById(int id) throws RuntimeException;
     void addOrUpdate(Teacher teacher) throws RuntimeException;
     void  delete(int id) throws RuntimeException;
-    List<TeacherEXMapper> search(String key) throws  RuntimeException;
+    List<TeacherEX> search(String key) throws  RuntimeException;
 }

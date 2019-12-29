@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface TeacherEXMapper {
    List<TeacherEX> findAll();
+   List<TeacherEX> search(String key);
 
 }
